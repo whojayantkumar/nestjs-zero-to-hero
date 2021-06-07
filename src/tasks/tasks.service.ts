@@ -47,8 +47,9 @@ export class TasksService {
     return task;
   }
   deleteTask(id: string): Task[] {
-    const index = this.tasks.findIndex((task) => task.id == id);
-    return this.tasks.splice(index, 1);
+    // const index = this.tasks.findIndex((task) => task.id == id);
+    const task = this.getTaskById(id);
+    return this.tasks.splice(this.tasks.indexOf(task), 1);
   }
   updateTask(id: string, status: TaskStatus): Task {
     // let task = this.tasks.find((t) => t.id == id);
