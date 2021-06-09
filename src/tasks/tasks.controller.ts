@@ -35,16 +35,22 @@ export class TasksController {
   // getTaskById(@Param('id') id: string): Task {
   //   return this.taskservice.getTaskById(id);
   // }
-
+  @Post()
+  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
+    return this.taskservice.createTask(createTaskDto);
+  }
   // @Post()
   // createTask(@Body() createTaskDto: CreateTaskDto): Task {
   //   return this.taskservice.createTask(createTaskDto);
   // }
-
-  // @Delete(':id')
-  // deleteTask(@Param('id') id: string) {
-  //   return this.taskservice.deleteTask(id);
-  // }
+@Delete(':id')
+deleteTask(@Param('id')id: string): Promise<void>{
+ return this.taskservice.deleteTask(id);
+}
+@Patch(':id/status')
+updateTask(@Param('id')id: string, @Body() updateTaskDto:UpdateTaskStatusDto): Promise<Task>{
+return this.taskservice.updateTaskStatus(id, updateTaskDto.status);
+}
   // @Patch(':id/status')
   // updateTask(
   //   @Param('id') id: string,
