@@ -8,12 +8,12 @@ import { TasksModule } from './tasks/tasks.module';
   imports: [
     TasksModule,
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: 'mysql',
       host: 'localhost',
-      port: 5432,
-      username: 'postgres',
+      port: 3306,
+      username: 'root',
       password: 'root',
-      database: 'task-managment',
+      database: 'test',
       autoLoadEntities: true,
       synchronize: true,
     }),
